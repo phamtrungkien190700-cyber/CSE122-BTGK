@@ -1,0 +1,507 @@
+/* Thiết lập màu sắc, phông chữ và quy tắc kích thước chung. */
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #142c4f;
+  background: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tính cả viền và khoảng đệm trong kích thước phần tử. */
+* {
+  box-sizing: border-box;
+}
+
+/* Nền trắng và chiều cao tối thiểu cho toàn bộ trang. */
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #fff;
+}
+
+/* Màu và kiểu hiển thị chung của các liên kết. */
+a {
+  color: #145bc1;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Căn nội dung trang vào giữa màn hình và tạo khoảng trống xung quanh. */
+.page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+/* Khung trắng chứa biểu mẫu đăng nhập, đăng ký hoặc quên mật khẩu. */
+.auth-card {
+  width: min(100%, 760px);
+  padding: 38px 42px 36px;
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgb(20 44 79 / 8%);
+}
+
+/* Giới hạn chiều rộng khung của riêng trang quên mật khẩu. */
+.auth-card--forgot {
+  width: min(100%, 760px);
+}
+
+/* Căn giữa logo, tên thương hiệu và dòng giới thiệu. */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Bố trí biểu tượng và tên LegalPath trên cùng một hàng. */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #2851b5;
+  text-decoration: none;
+}
+
+.brand-logo:hover {
+  text-decoration: none;
+}
+
+/* Kích thước và màu biểu tượng thương hiệu. */
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  color: #2851b5;
+}
+
+/* Kiểu chữ chuyển sắc cho tên LegalPath. */
+.brand-name {
+  background: linear-gradient(90deg, #2946a6, #2c69ef);
+  background-clip: text;
+  color: transparent;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+
+/* Dòng khẩu hiệu bên dưới tên thương hiệu. */
+.brand-subtitle {
+  margin: 4px 0 0;
+  color: #a0aec1;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Dòng mô tả ngắn bên dưới phần thương hiệu. */
+.brand-tagline {
+  margin: 22px 0 0;
+  color: #667b98;
+  font-size: 12px;
+}
+
+/* Đường kẻ phân cách thương hiệu với nội dung biểu mẫu. */
+.divider {
+  height: 1px;
+  margin: 12px 0 24px;
+  background: #e1e8f1;
+}
+
+/* Tiêu đề và câu giới thiệu của từng trang. */
+.intro {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.intro h1 {
+  margin: 0 0 6px;
+  color: #142c4f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.intro p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #687d9a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Xếp các trường nhập liệu trong biểu mẫu theo chiều dọc. */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Nhãn và ô nhập của từng trường biểu mẫu. */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field label {
+  color: #142c4f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid #cbd8ea;
+  border-radius: 10px;
+  outline: none;
+  background: #f4f7fb;
+  color: #142c4f;
+  font: inherit;
+  font-size: 14px;
+}
+
+/* Màu chữ gợi ý trong các ô nhập liệu. */
+.field input::placeholder {
+  color: #70819b;
+  opacity: 1;
+}
+
+/* Làm nổi bật ô nhập liệu đang được chọn. */
+.field input:focus {
+  border-color: #2362c8;
+  box-shadow: 0 0 0 3px rgb(35 98 200 / 12%);
+}
+
+/* Giữ biểu tượng con mắt nằm bên trong ô nhập mật khẩu. */
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 48px;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  color: #647996;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.eye-icon svg {
+  width: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+/* Dòng nhắc về yêu cầu mật khẩu. */
+.field-hint {
+  color: #7285a0;
+  font-size: 12px;
+}
+
+/* Hàng tùy chọn ghi nhớ đăng nhập và quên mật khẩu. */
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: -2px;
+  color: #687d9a;
+  font-size: 13px;
+}
+
+/* Kiểu hiển thị chung cho các ô chọn và dòng chữ đi kèm. */
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #687d9a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.checkbox-label input {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  margin: 0;
+  accent-color: #145bc1;
+}
+
+/* Nút gửi biểu mẫu và hiệu ứng khi rê chuột. */
+.primary-button {
+  width: 100%;
+  min-height: 50px;
+  border: 0;
+  border-radius: 10px;
+  background: #195bc0;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.primary-button:hover {
+  background: #124da9;
+}
+
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.form-message {
+  min-height: 1.25em;
+  margin: 0;
+  color: #b42318;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.form-message:empty {
+  display: none;
+}
+
+.form-message[data-state="success"] {
+  color: #167044;
+}
+
+/* Viền báo trạng thái khi điều hướng bằng bàn phím. */
+.primary-button:focus-visible,
+a:focus-visible,
+.checkbox-label input:focus-visible {
+  outline: 3px solid rgb(35 98 200 / 35%);
+  outline-offset: 3px;
+}
+
+/* Dòng liên kết chuyển đổi giữa đăng nhập và đăng ký. */
+.switch-page {
+  margin: 26px 0 0;
+  color: #687d9a;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Nhấn mạnh các liên kết thao tác trong biểu mẫu. */
+.switch-page a,
+.form-options > a,
+.agreement a,
+.back-link {
+  font-weight: 600;
+}
+
+.agreement {
+  margin: 2px 0 0;
+}
+
+.agreement a {
+  white-space: nowrap;
+}
+
+/* Ghi chú bảo mật dưới biểu mẫu hoặc phía trên khung. */
+.security-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 22px 0 0;
+  color: #195bc0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.security-note svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.security-note--top {
+  margin: 0 0 22px;
+}
+
+/* Hướng dẫn sau nút gửi yêu cầu khôi phục mật khẩu. */
+.recovery-note {
+  margin: 18px 0 0;
+  color: #687d9a;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Liên kết quay lại trang đăng nhập và biểu tượng mũi tên. */
+.back-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 22px auto 0;
+  font-size: 14px;
+}
+
+.back-link svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+/* Điều chỉnh bố cục để phù hợp với màn hình điện thoại. */
+@media (max-width: 640px) {
+  .page {
+    justify-content: flex-start;
+    padding: 20px 14px;
+  }
+
+  .auth-card {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+
+  .brand-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-logo {
+    gap: 10px;
+  }
+
+  .brand-name {
+    font-size: 36px;
+  }
+
+  .brand-subtitle {
+    font-size: 15px;
+  }
+
+  .brand-tagline {
+    margin-top: 16px;
+  }
+
+  .divider {
+    margin: 14px 0 22px;
+  }
+
+  .intro h1 {
+    font-size: 28px;
+  }
+
+  .intro p {
+    font-size: 13px;
+  }
+
+  .auth-form {
+    gap: 14px;
+  }
+
+  .form-options {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .checkbox-label {
+    font-size: 12px;
+  }
+
+  .agreement {
+    align-items: flex-start;
+  }
+
+  .security-note {
+    margin-top: 18px;
+    font-size: 11px;
+  }
+
+  .security-note--top {
+    margin: 0 0 18px;
+  }
+}
+
+/* Thu gọn khoảng cách khi màn hình thấp để các nút dễ nhìn thấy hơn. */
+@media (max-height: 950px) {
+  .page {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .auth-card {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .brand-tagline {
+    margin-top: 12px;
+  }
+
+  .divider {
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+
+  .intro {
+    margin-bottom: 16px;
+  }
+
+  .intro h1 {
+    font-size: 28px;
+  }
+
+  .auth-form {
+    gap: 10px;
+  }
+
+  .field {
+    gap: 5px;
+  }
+
+  .field input {
+    height: 44px;
+  }
+
+  .switch-page {
+    margin-top: 16px;
+  }
+
+  .security-note {
+    margin-top: 14px;
+  }
+
+  .security-note--top {
+    margin-top: 0;
+    margin-bottom: 14px;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "list-user": [
+    {
+      "id": "zPpc6Ex3MEQ",
+      "name": "Phạm Trung Kiên",
+      "identity": "anhdatrang3100@gmail.com",
+      "salt": "21b21f2f20898c202b208dbfcc5a63ce",
+      "passwordHash": "b79745ff0b3aec407ba81645968e3d80644b60d39ec2d4b581bc24dd9d4af863aacd8391fa90079305637118409b9a5675feb5021331ded2eeb938eb5f8e6a0a",
+      "createdAt": "2026-10-12T08:08:06.334Z"
+    },
+    {
+      "id": "8ObBZ8Wn7pc",
+      "name": "son",
+      "identity": "deptrai123@gmail.com",
+      "salt": "a395c4047498710d418a74138651e356",
+      "passwordHash": "aedd36a1b898f1980f177809df3e6397a938c757fe85f4e7b8ff8a13654f0337339f277a07c4b06ea346117301259e745ac423394440d0118f20be59b8e6feb8",
+      "createdAt": "2026-10-12T08:08:51.730Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
