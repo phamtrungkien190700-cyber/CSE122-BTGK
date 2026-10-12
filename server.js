@@ -6,7 +6,7 @@ const path = require("node:path");
 
 const scryptAsync = promisify(scrypt);
 const ROOT = __dirname;
-const USER_STORE_URL = process.env.USER_STORE_URL || "http://127.0.0.1:3000/list-user";
+const USER_STORE_PATH = path.join(ROOT, "data-user", "list-user.json");
 const PORT = Number(process.env.PORT || 3002);
 const MAX_BODY_SIZE = 16 * 1024;
 const LOCAL_ORIGIN = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
@@ -49,44 +49,46 @@ async function readJson(request) {
 }
 
 async function readUsers() {
-  let response;
+  let contents;
   try {
-    response = await fetch(USER_STORE_URL);
+    contents = await fs.readFile(USER_STORE_PATH, "utf8");
   } catch (error) {
-    console.error("Không kết nối được JSON Server:", error);
-    throw new HttpError(502, "Không kết nối được JSON Server tại cổng 3000.");
+    console.error("Không đọc được dữ liệu tài khoản:", error);
+    throw new HttpError(500, "Không đọc được dữ liệu tài khoản.");
   }
 
-  if (!response.ok) {
-    throw new HttpError(502, `JSON Server trả về lỗi HTTP ${response.status}.`);
-  }
-  let users;
   try {
-    users = await response.json();
+    const store = JSON.parse(contents);
+    if (!store || typeof store !== "object" || !Array.isArray(store["list-user"])) {
+      throw new Error("Thiếu mảng list-user.");
+    }
+    return store["list-user"];
   } catch {
-    throw new HttpError(502, "JSON Server trả về dữ liệu JSON không hợp lệ.");
+    throw new HttpError(500, "Tệp dữ liệu tài khoản không hợp lệ.");
   }
-  if (!Array.isArray(users)) {
-    throw new HttpError(502, "Route list-user phải trả về một mảng JSON.");
-  }
-  return users;
 }
 
-async function saveUser(user) {
-  let response;
+async function saveUsers(users) {
+  let store;
   try {
-    response = await fetch(USER_STORE_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    });
+    store = JSON.parse(await fs.readFile(USER_STORE_PATH, "utf8"));
   } catch (error) {
-    console.error("Không thể ghi dữ liệu lên JSON Server:", error);
-    throw new HttpError(502, "Không thể lưu tài khoản vào JSON Server.");
+    console.error("Không đọc được dữ liệu tài khoản để lưu:", error);
+    throw new HttpError(500, "Không thể đọc dữ liệu tài khoản để lưu.");
   }
 
-  if (!response.ok) {
-    throw new HttpError(502, `JSON Server không lưu được tài khoản (HTTP ${response.status}).`);
+  if (!store || typeof store !== "object" || !Array.isArray(store["list-user"])) {
+    throw new HttpError(500, "Tệp dữ liệu tài khoản không hợp lệ.");
+  }
+  store["list-user"] = users;
+
+  const temporaryPath = `${USER_STORE_PATH}.tmp`;
+  try {
+    await fs.writeFile(temporaryPath, `${JSON.stringify(store, null, 2)}\n`, "utf8");
+    await fs.rename(temporaryPath, USER_STORE_PATH);
+  } catch (error) {
+    console.error("Không thể lưu dữ liệu tài khoản:", error);
+    throw new HttpError(500, "Không thể lưu dữ liệu tài khoản.");
   }
 }
 
@@ -148,7 +150,8 @@ async function register(request, response) {
       createdAt: new Date().toISOString(),
     };
 
-    await saveUser(newUser);
+    users.push(newUser);
+    await saveUsers(users);
     return { name: newUser.name, identity: newUser.identity };
   });
 

@@ -12,9 +12,65 @@
       "id": "8ObBZ8Wn7pc",
       "name": "son",
       "identity": "deptrai123@gmail.com",
-      "salt": "a395c4047498710d418a74138651e356",
-      "passwordHash": "aedd36a1b898f1980f177809df3e6397a938c757fe85f4e7b8ff8a13654f0337339f277a07c4b06ea346117301259e745ac423394440d0118f20be59b8e6feb8",
+      "salt": "d246e7e455b60a8a3fa1d65a049cb82d",
+      "passwordHash": "28b6fb9a7302e302daaecd62d23ba7dfe67bdec9eb66b7a725aef3a3dd2c226d13c00c93b0ddfd01643f2a60eb47d8346e424975a366d458ad70c882a9e096cb",
       "createdAt": "2026-10-12T08:08:51.730Z"
+    },
+    {
+      "id": "hLBzZzsl8JQ",
+      "name": "Nguyễn Thiên Hương",
+      "identity": "không kết nối được api tại cổng 3002. hãy kiểm tra node server.js và tải lại trang.",
+      "salt": "f1dd320e72fc9faa6e9d64d42af0692e",
+      "passwordHash": "cb12237cbef12c188cd9b2938f5397b0d71ec1116092d6fdfeb147e374d76ac3a3816a9da4452c5b819585a80967578247b3220087d48e761d51c5be2e65291a",
+      "createdAt": "2026-10-12T15:54:42.786Z"
+    },
+    {
+      "id": "7SzUwF--F-k",
+      "name": "123123",
+      "identity": "312312321",
+      "salt": "8086fdf31f5bedf5066ebfe893b110c9",
+      "passwordHash": "740ea38efeec6e8e4eddd5c715e1a7453e307db1fd81623bfcac6e7436be5e5233eaecf33bc80ee4c2bac4967f8a9833d6f468ba4f42a51950df03fef87683e1",
+      "createdAt": "2026-10-12T15:59:17.371Z"
+    },
+    {
+      "id": "94158d99ed6fc9803847b15f3f142aaa",
+      "name": "Nguyễn Thiên Hương",
+      "identity": "0123456",
+      "salt": "fbfa494287646e08337c920a248433d0",
+      "passwordHash": "2d017fef3eff96f6bc21a8459a3333106db75c08fbf034d8f61c4706487060c7722917a8712ed1204403d6b146b5fdbb5542b18878a3e12ffbb6a538b4401c2a",
+      "createdAt": "2026-10-12T16:18:31.946Z"
+    },
+    {
+      "id": "70cadb094257b1c53dc21409c067a3ee",
+      "name": "kiendeptrai123",
+      "identity": "01234",
+      "salt": "c4ca7742babd3bee2ca53b5b16831d2f",
+      "passwordHash": "de936d6ca4b54cfd6eb7cfa29fd993ea814f14349b1748c676c07f41bcc50bf8e68b3638dbc1693d0cdc997535139b396454414ba8952c433510421e91cd05cb",
+      "createdAt": "2026-10-12T16:47:30.757Z"
+    },
+    {
+      "id": "436d8a5d9e2350bcc238701090fc0d2f",
+      "name": "kien",
+      "identity": "0123",
+      "salt": "8674edc45a4b50407b4b79eb96a88b3b",
+      "passwordHash": "8257dfd73a354e76ed5bcb738ea7208b65ac5ed1c6bc448a970e1eb40951cc2a72ac664c9bb06233baa6914049f6b63044bd9d658e77270262a8c2b04625d8c1",
+      "createdAt": "2026-10-12T17:25:19.930Z"
+    },
+    {
+      "id": "5213a56223ddc9469e011268d617fa64",
+      "name": "deptrai",
+      "identity": "123456789",
+      "salt": "ca64103cf0effb6212336844be89438f",
+      "passwordHash": "79358a24160ad7b1409bcbe961e3a0846ae0aa25d9387ddc2952dd0d125a476c64750813e345b9493f5a97bb4789d2d48a948e0594e5a9d75121682c21768acc",
+      "createdAt": "2026-10-12T17:45:03.036Z"
+    },
+    {
+      "id": "fbc45d12f9c5b0c7a600a401b7f4cd4a",
+      "name": "deptrai123",
+      "identity": "0123456790",
+      "salt": "d10f5dbd1f8105bdb0a0e52157e65227",
+      "passwordHash": "d26566486c8b90992e5ae2e9a1f0544a65eba6ae13712591b42683d4fa0a1e35ba2f07e4a8b0f0ecc5c78740f2b15390b9f5ee1b441ab1e00483a4f56197559e",
+      "createdAt": "2026-10-12T17:51:55.507Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
